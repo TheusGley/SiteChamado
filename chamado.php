@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <head>
+<?php
+    include("conexaodb.php");
 
+?>
 
   <meta charset="UTF-8" />
   <title>Chamados CTI</title>
@@ -15,53 +18,64 @@
     <div class="content">      
       <!--FORMULÁRIO DE CHAMADOS-->
       <div id="chamado">
-       <form method="post" action="insert.php"> 
+       <form method="get" action="Insert.php"> 
           <h1>Chamados </h1> 
           <p> 
-            <label>Nome Completo</label>
-            <input id="nome" name="nome"  type="text" placeholder=""/>
+            <label for="nome_completo">Nome Completo</label>
+            <input id="nome" name="nome" required="required" type="text" placeholder=""/>
           </p>
            
           <p> 
             <label for="email_login">E-mail</label>
-            <input id="email_login" name="email"  type="text" placeholder="ex. defensoria@mt.gov.com.br" /> 
+            <input id="email_login" name="email[]" required="required" type="text" placeholder="ex. defensoria@mt.gov.com.br" /> 
           </p>
           <p> 
             <label for="nucleo">Núcleo</label>
-            <input id="nucleo" name="nucleo"  type="text" placeholder=" " /> 
+            <input id="nucleo" name="nucleo[]" required="required" type="text" placeholder=" " /> 
           </p>
           <p> 
             <label for="setor">Setor/Gabinete</label>
-            <input id="setor" name="setor" type="text" placeholder=" " /> 
+            <input id="setor" name="setor[]"  type="text" placeholder=" " /> 
           </p>
           <p> 
             <label for="telefone">Telefone para Contato</label>
-            <input id="telefone" name="tel"  type="tel" placeholder=" ex: 65 123456789 " /> 
+            <input id="telefone" name="tel[]" required="required" type="tel" placeholder=" ex: 65 123456789 " /> 
           </p>
           <p> 
             <label for="assunto">Descrição do problema</label>
-            <input id="assunto" name="desc"  type="text" placeholder=""/>
+            <input id="assunto" name="desc" required="required" type="text" placeholder=""/>
           </p>
-          <p> 
-            <label for="info">Informações Adicionais</label>
-            <input id="info" name="info"  type="text" placeholder="" /> 
-          </p>
-           
+          
+        
          
            
           <p> 
-            <input type="submit" value="Enviar"  /> 
+            <input type="submit" value="Enviar" formaction="Finalizado.php" /> 
           </p>
-          
+         
         
           
           
         </form>
+        <a href="index.php">
+        <p> 
+            <input type="submit" value="Voltar"  /> 
+          </p>
+          
       </div>
-     >    
+      
+  
+  
+    
+
+      <p class="alert-success">
+            Produto: <?= $nome; ?>
+      </p>
+ 
+        </div>    
  
     
-          
+      </div>    
     </div>
   </div>  
 </body>
