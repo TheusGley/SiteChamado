@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <head>
-<?php include("conexaodb.php");
-    include("Insert.php");
-?>
+
 
   <meta charset="UTF-8" />
   <title>Chamados CTI</title>
@@ -17,42 +15,42 @@
     <div class="content">      
       <!--FORMULÁRIO DE CHAMADOS-->
       <div id="chamado">
-       <form method="post" action="Insert.php"> 
+       <form method="post" action="insert.php"> 
           <h1>Chamados </h1> 
           <p> 
-            <label for="nome_completo">Nome Completo</label>
-            <input id="nome" name="nome[]" required="required" type="text" placeholder=""/>
+            <label>Nome Completo</label>
+            <input id="nome" name="nome"  type="text" placeholder=""/>
           </p>
            
           <p> 
             <label for="email_login">E-mail</label>
-            <input id="email_login" name="email[]" required="required" type="text" placeholder="ex. defensoria@mt.gov.com.br" /> 
+            <input id="email_login" name="email"  type="text" placeholder="ex. defensoria@mt.gov.com.br" /> 
           </p>
           <p> 
             <label for="nucleo">Núcleo</label>
-            <input id="nucleo" name="nucleo[]" required="required" type="text" placeholder=" " /> 
+            <input id="nucleo" name="nucleo"  type="text" placeholder=" " /> 
           </p>
           <p> 
             <label for="setor">Setor/Gabinete</label>
-            <input id="setor" name="setor[]" required="required" type="text" placeholder=" " /> 
+            <input id="setor" name="setor" type="text" placeholder=" " /> 
           </p>
           <p> 
             <label for="telefone">Telefone para Contato</label>
-            <input id="telefone" name="tel[]" required="required" type="tel" placeholder=" ex: 65 123456789 " /> 
+            <input id="telefone" name="tel"  type="tel" placeholder=" ex: 65 123456789 " /> 
           </p>
           <p> 
             <label for="assunto">Descrição do problema</label>
-            <input id="assunto" name="desc" required="required" type="text" placeholder=""/>
+            <input id="assunto" name="desc"  type="text" placeholder=""/>
           </p>
           <p> 
-            <label for="Info">Informações Adicionais</label>
-            <input id="Info" name="info[] " required="required" type="textarea" placeholder=" " /> 
+            <label for="info">Informações Adicionais</label>
+            <input id="info" name="info"  type="text" placeholder="" /> 
           </p>
            
          
            
           <p> 
-            <input type="submit" value="Enviar" formaction="#parafinalizado" /> 
+            <input type="submit" value="Enviar"  /> 
           </p>
           
         
@@ -60,30 +58,10 @@
           
         </form>
       </div>
-      <div id="finalizado">
-         
-        
-      
-          <h1 id="enviado"> Chamado enviado!!! </h1>
-          <p> 
-              <label id="label1">Seu chamado foi enviado com sucesso, Estaremos atendendo com prioridade!!! </label>
-          </p>
-          <p id="link">  
-            
-            <a href="#parachamado"> Voltar para chamados</a>
-          </p>
-  
-  
-    
-
-      <p class="alert-success">
-            Produto: <?= $nome; ?>
-      </p>
- 
-        </div>    
+     >    
  
     
-      </div>    
+          
     </div>
   </div>  
 </body>
