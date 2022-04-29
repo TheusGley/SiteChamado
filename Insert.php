@@ -1,33 +1,35 @@
 <?php
-   /**
-    $nome   = $_GET=["nome"][0];
-    $nucleo = $_GET=["nucleo"][0];
-    $setor  = $_GET=["setor"][0];
-    $tel    = $_GET=["tel"][0];
-    $desc   = $_GET=["desc"][0];
-    $email  = $_GET=["email"][0];
-
-**/
-
-    $mysql = new mysqli('127.0.0.1', 'root', 'root', 'bd_site');
-
-    if ($mysql) {
-        echo("Conectado");
-    }else{
-        echo("Desconectado");
-    }
-
- /**   $query = insert into chamados (nome, nucleo, setor, tel, desc, email) values ('$nome', '$nucleo', '$setor', '$tel', '$desc', '$email');
+ $servername = "127.0.0.1";
+ $database = "db_site";
+ $username = "root";
+ $password = "";
+ // Criar conexao
+ $conn = mysqli_connect($servername, $username, $password, $database);
+ // Checando conexão
+ if (!$conn) {
+       die("Connection failed: " . mysqli_connect_error());
+ }
+  
 
 
+    $nome   = $_POST ["f_nome"];
+    $nucleo = $_POST ["f_nucleo"];
+    $setor  = $_POST ["f_setor"];
+    $tel    = $_POST ["f_tel"];
+    $desc   = $_POST ["f_desc"];
+    $email  = $_POST ["f_email"];
     
-    mysqli_query($mysql, $query);
-    mysqli_close($conexao);
 
 
 
-  <p class="alert-success">
-    Chamado:  $nome; ,  nucleo: $nucleo; setor: $setor; tel: $tel; desc: $desc; email: $email;    - adicionado com sucesso!
-  </p>
- **/
- ?>
+ $sql = "INSERT INTO chamado (nome,email,nucleo,setor,tel,descr) VALUES ('$nome', '$email','$nucleo','$setor','$tel','$desc')";
+ if (mysqli_query($conn, $sql)) {
+       echo "Gravado com sucesso ";
+ } else {
+       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+ }
+ mysqli_close($conn);
+ 
+
+
+?>
