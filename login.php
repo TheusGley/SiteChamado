@@ -1,14 +1,13 @@
 <?php
-$login = $_POST['login'];
-$entrar = $_POST['entrar'];
-$senha = md5($_POST['senha']);
-$connect = mysql_connect('db_chamados','root','root');
-$db = mysql_select_db('db_chamados');
+$login = $_POST['login'][0];
+$senha = md5($_POST['senha'][0]);
+$connect = mysqli_connect('db_site','root','root');
+$db = mysqli_select_db('db_site');
   if (isset($entrar)) {
 
-    $verifica = mysql_query("SELECT * FROM usuarios WHERE login =
+    $verifica = mysqli_query("SELECT * FROM usuarios WHERE login =
     '$login' AND senha = '$senha'") or die("erro ao selecionar");
-      if (mysql_num_rows($verifica)<=0){
+      if (mysqli_num_rows($verifica)<=0){
         echo"<script language='javascript' type='text/javascript'>
         alert('Login e/ou senha incorretos');window.location
         .href='login.html';</script>";
@@ -34,7 +33,7 @@ $db = mysql_select_db('db_chamados');
   <div id="login" align="center">
 	<form method="POST" action="conexaodb.php">
 		<label>Usuario</label><br>
-		<input type="viewport" id="nome" name="nome">
+		<input type="viewport" id="Lnome" name="nome">
 		<br>
 		<label>Senha</label><br>
 		<input type="password" id="senha" name="senha">
